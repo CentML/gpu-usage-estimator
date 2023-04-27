@@ -5,7 +5,7 @@ This is a script to generate a quick summary of gpu usage for ML models
 
 ## Usage
 ```
-python estimator.py gpu-usage-estimation [path_to_file]
+python estimator.py [path_to_file]
 ```
 
 ## Requirements
