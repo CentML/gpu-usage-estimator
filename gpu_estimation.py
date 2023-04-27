@@ -9,18 +9,6 @@ from collections import defaultdict
 
 NS_TIME = 1e9
 
-def register_command(subparsers):
-    parser = subparsers.add_parser(
-        "gpu-usage-estimation",
-        help="Estimation of gpu operation time. We recommend running your training cycle for 100 iterations"
-    )
-
-    parser.add_argument(
-        "path_to_file",
-        help="path of the file you want to analyze"
-    )
-    parser.set_defaults(func=main)
-
 def joinIntervals(arr):
     # arr = tuple(type,start,end,streamid)
     eventDict = defaultdict(int)
@@ -97,7 +85,7 @@ def actual_main(args):
         sys.exit(1)
 
     curr_dir = subprocess.run(["pwd"], capture_output=True, text=True).stdout.strip()
-    nsys_output = subprocess.run(["nsys","profile","--trace=cuda,osrt","--cpuctxsw=none","--sample=none","--force-overwrite=true","--stats=true","--output=gpu_estimation","python", args.path_to_file], 
+    nsys_output = subprocess.run(["nsys","profile","--trace=cuda,osrt","--cpuctxsw=none","--sample=none","--force-overwrite=true","--stats=true","--output=gpu_estimation","python", args["path_to_file"]], 
                                  stdout=subprocess.PIPE, 
                                  stderr=subprocess.PIPE, 
                                  text=True)
