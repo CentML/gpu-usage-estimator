@@ -1,16 +1,17 @@
-# GPU ESTIMATION
+# GPU USAGE ESTIMATOR
 
 ## Overview
-This is a script to generate a quick summary of gpu usage for ML models
+
+This script will execute your training script and output a summary of the GPU usage. 
+
+## Requirements
+1. Nsys must be installed available in your path. [Link to download the tool](https://developer.nvidia.com/nsight-systems/get-started)
+2. You must run this script in the same environment as your training model
 
 ## Usage
 ```
 python estimator.py [path_to_file]
 ```
-
-## Requirements
-1. Nsys must be available in your path [info](https://developer.nvidia.com/nsight-systems/get-started)
-2. The modules required by your model must be installed in the virtual environment from where you call this file
 
 ## Example output
 ![sample image](sample.png)
